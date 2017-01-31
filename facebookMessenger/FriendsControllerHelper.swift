@@ -49,8 +49,8 @@ extension FriendsController {
             mark.name = "Mark Zuckerberg"
             mark.profileImageName = "zuckprofile"
             
-            createMessage(withText: "Hello, my name is mark, nice to meet you...", friend: mark, minutesAgo: 3, context: context)
-            createMessage(withText: "Whatzzup marky!!", friend: mark, minutesAgo: 2, context: context)
+            createMessage(withText: "Hello, my name is mark, nice to meet you. I am the founder of facebook and I have made the forbes list at a very young age. ", friend: mark, minutesAgo: 3, context: context)
+            createMessage(withText: "Whatzzup!! Are you interested in buying our very new Facebook phone!?! We are certian you will be please with the product! Please check it out!!", friend: mark, minutesAgo: 2, context: context)
             
             let steve = Friend(context: context)
             
