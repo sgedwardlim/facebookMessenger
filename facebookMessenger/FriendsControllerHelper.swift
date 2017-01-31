@@ -17,6 +17,7 @@ extension FriendsController {
         if let context = delegate?.persistentContainer.viewContext {
             
             do {
+                
                 let messages: [Message] = try context.fetch(Message.fetchRequest())
                 for message in messages {
                     context.delete(message)
@@ -48,33 +49,44 @@ extension FriendsController {
             mark.name = "Mark Zuckerberg"
             mark.profileImageName = "zuckprofile"
             
-            let message = Message(context: context)
-            
-            message.friend = mark
-            message.text = "Hello, my name is mark, nice to meet you..."
-            message.date = NSDate()
+            createMessage(withText: "Hello, my name is mark, nice to meet you...", friend: mark, minutesAgo: 3, context: context)
+            createMessage(withText: "Whatzzup marky!!", friend: mark, minutesAgo: 2, context: context)
             
             let steve = Friend(context: context)
             
             steve.name = "Steve Jobs"
             steve.profileImageName = "steveprofile"
             
-            let messageSteve  = Message(context: context)
-            messageSteve.friend = steve
-            messageSteve.text = "Hello i am the founder of apple products..."
-            messageSteve.date = NSDate()
+            createMessage(withText: "Good Morning...", friend: steve, minutesAgo: 3, context: context)
+            createMessage(withText: "Hello how are you doing!", friend: steve, minutesAgo: 2, context: context)
             
-            delegate?.saveContext()
+            let donald = Friend(context: context)
             
-//            do {
-//                try context.save()
-//            } catch let err {
-//                print(err)
-//            }
+            donald.name = "Donald Trump"
+            donald.profileImageName = "donaldprofile"
+            
+            createMessage(withText: "Good Morning...", friend: donald, minutesAgo: 6, context: context)
+            createMessage(withText: "You're Fired!", friend: donald, minutesAgo: 5, context: context)
+            createMessage(withText: "No goddamit You're Fired!", friend: donald, minutesAgo: 4, context: context)
+            
+            do {
+                try context.save()
+            } catch let err {
+                print(err)
+            }
 
         }
         
         loadData()
+    }
+    
+    private func createMessage(withText text: String, friend: Friend, minutesAgo: Double, context: NSManagedObjectContext) {
+        
+        let message  = Message(context: context)
+        message.friend = friend
+        message.text = text
+        message.date = NSDate().addingTimeInterval(-minutesAgo * 60)
+        
     }
     
     func loadData() {
@@ -82,13 +94,43 @@ extension FriendsController {
         
         if let context = delegate?.persistentContainer.viewContext {
             
+            if let friends = fetchFriends() {
+                
+                messages = [Message]()
+                for friend in friends {
+                    
+                    let fetchRequest: NSFetchRequest<Message> = Message.fetchRequest()
+                    fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
+                    fetchRequest.predicate = NSPredicate(format: "friend.name = %@", friend.name!)
+                    fetchRequest.fetchLimit = 1
+                    
+                    do {
+                        let fetchedMessage = try context.fetch(fetchRequest)
+                        messages?.append(contentsOf: fetchedMessage)
+                    } catch let err {
+                        print(err)
+                    }
+                }
+                
+                messages = messages?.sorted(by: {
+                    $0.date!.compare($1.date! as Date) == .orderedDescending
+                })
+            }
+        }
+    }
+    
+    private func fetchFriends() -> [Friend]? {
+        let delegate = UIApplication.shared.delegate as? AppDelegate
+        if let context = delegate?.persistentContainer.viewContext {
+            
             do {
-                messages = try context.fetch(Message.fetchRequest())
+                return try context.fetch(Friend.fetchRequest())
             } catch let err {
                 print(err)
             }
             
         }
+        return nil
     }
     
 
