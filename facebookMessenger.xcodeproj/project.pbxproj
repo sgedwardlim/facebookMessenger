@@ -14,6 +14,7 @@
 		2B4DE9E61E3EFF7000775130 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B4DE9E41E3EFF7000775130 /* LaunchScreen.storyboard */; };
 		2B4DE9EE1E3F340400775130 /* FriendsControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4DE9ED1E3F340400775130 /* FriendsControllerHelper.swift */; };
 		2BB899771E4018D800D4C6E9 /* ChatLogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB899761E4018D800D4C6E9 /* ChatLogController.swift */; };
+		2BB899791E40277C00D4C6E9 /* CustomerTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB899781E40277C00D4C6E9 /* CustomerTabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		2B4DE9E71E3EFF7000775130 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B4DE9ED1E3F340400775130 /* FriendsControllerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsControllerHelper.swift; sourceTree = "<group>"; };
 		2BB899761E4018D800D4C6E9 /* ChatLogController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatLogController.swift; sourceTree = "<group>"; };
+		2BB899781E40277C00D4C6E9 /* CustomerTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerTabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				2B4DE9D81E3EFF7000775130 /* AppDelegate.swift */,
+				2BB899781E40277C00D4C6E9 /* CustomerTabBarController.swift */,
 				2B4DE9DA1E3EFF7000775130 /* FriendsController.swift */,
 				2B4DE9ED1E3F340400775130 /* FriendsControllerHelper.swift */,
 				2BB899761E4018D800D4C6E9 /* ChatLogController.swift */,
@@ -144,6 +147,7 @@
 				2BB899771E4018D800D4C6E9 /* ChatLogController.swift in Sources */,
 				2B4DE9DB1E3EFF7000775130 /* FriendsController.swift in Sources */,
 				2B4DE9E11E3EFF7000775130 /* facebookMessenger.xcdatamodeld in Sources */,
+				2BB899791E40277C00D4C6E9 /* CustomerTabBarController.swift in Sources */,
 				2B4DE9D91E3EFF7000775130 /* AppDelegate.swift in Sources */,
 				2B4DE9EE1E3F340400775130 /* FriendsControllerHelper.swift in Sources */,
 			);
