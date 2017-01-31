@@ -10,11 +10,11 @@
 		2B4DE9D91E3EFF7000775130 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4DE9D81E3EFF7000775130 /* AppDelegate.swift */; };
 		2B4DE9DB1E3EFF7000775130 /* FriendsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4DE9DA1E3EFF7000775130 /* FriendsController.swift */; };
 		2B4DE9E11E3EFF7000775130 /* facebookMessenger.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2B4DE9DF1E3EFF7000775130 /* facebookMessenger.xcdatamodeld */; };
-		2B4DE9E31E3EFF7000775130 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B4DE9E21E3EFF7000775130 /* Assets.xcassets */; };
 		2B4DE9E61E3EFF7000775130 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B4DE9E41E3EFF7000775130 /* LaunchScreen.storyboard */; };
 		2B4DE9EE1E3F340400775130 /* FriendsControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4DE9ED1E3F340400775130 /* FriendsControllerHelper.swift */; };
 		2BB899771E4018D800D4C6E9 /* ChatLogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB899761E4018D800D4C6E9 /* ChatLogController.swift */; };
 		2BB899791E40277C00D4C6E9 /* CustomerTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB899781E40277C00D4C6E9 /* CustomerTabBarController.swift */; };
+		2BB8997B1E411B8B00D4C6E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BB8997A1E411B8B00D4C6E9 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,12 +22,12 @@
 		2B4DE9D81E3EFF7000775130 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2B4DE9DA1E3EFF7000775130 /* FriendsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsController.swift; sourceTree = "<group>"; };
 		2B4DE9E01E3EFF7000775130 /* facebookMessenger.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = facebookMessenger.xcdatamodel; sourceTree = "<group>"; };
-		2B4DE9E21E3EFF7000775130 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2B4DE9E51E3EFF7000775130 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2B4DE9E71E3EFF7000775130 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B4DE9ED1E3F340400775130 /* FriendsControllerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsControllerHelper.swift; sourceTree = "<group>"; };
 		2BB899761E4018D800D4C6E9 /* ChatLogController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatLogController.swift; sourceTree = "<group>"; };
 		2BB899781E40277C00D4C6E9 /* CustomerTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomerTabBarController.swift; sourceTree = "<group>"; };
+		2BB8997A1E411B8B00D4C6E9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,7 +65,7 @@
 				2B4DE9DA1E3EFF7000775130 /* FriendsController.swift */,
 				2B4DE9ED1E3F340400775130 /* FriendsControllerHelper.swift */,
 				2BB899761E4018D800D4C6E9 /* ChatLogController.swift */,
-				2B4DE9E21E3EFF7000775130 /* Assets.xcassets */,
+				2BB8997A1E411B8B00D4C6E9 /* Assets.xcassets */,
 				2B4DE9E41E3EFF7000775130 /* LaunchScreen.storyboard */,
 				2B4DE9E71E3EFF7000775130 /* Info.plist */,
 				2B4DE9DF1E3EFF7000775130 /* facebookMessenger.xcdatamodeld */,
@@ -132,8 +132,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BB8997B1E411B8B00D4C6E9 /* Assets.xcassets in Resources */,
 				2B4DE9E61E3EFF7000775130 /* LaunchScreen.storyboard in Resources */,
-				2B4DE9E31E3EFF7000775130 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
