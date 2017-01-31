@@ -60,21 +60,21 @@ extension FriendsController {
             createMessage(withText: "Good Morning...", friend: steve, minutesAgo: 3, context: context)
             createMessage(withText: "Hello how are you doing!", friend: steve, minutesAgo: 2, context: context)
             
+            let ghandi = Friend(context: context)
+            
+            ghandi.name = "Mahatma Gandhi"
+            ghandi.profileImageName = "gandhiprofile"
+            
+            createMessage(withText: "My name is ghandi and I am pleased to meet you!", friend: ghandi, minutesAgo: 60 * 24, context: context)
+            
             let donald = Friend(context: context)
             
             donald.name = "Donald Trump"
             donald.profileImageName = "donaldprofile"
             
-            createMessage(withText: "Good Morning...", friend: donald, minutesAgo: 6, context: context)
-            createMessage(withText: "You're Fired!", friend: donald, minutesAgo: 5, context: context)
-            createMessage(withText: "No goddamit You're Fired!", friend: donald, minutesAgo: 4, context: context)
+            createMessage(withText: "No goddamit You're Fired!", friend: donald, minutesAgo: 60 * 24 * 8, context: context)
             
-            do {
-                try context.save()
-            } catch let err {
-                print(err)
-            }
-
+            delegate?.saveContext()
         }
         
         loadData()

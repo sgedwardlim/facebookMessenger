@@ -59,6 +59,15 @@ class FriendsController: UICollectionViewController, UICollectionViewDelegateFlo
 
 class MessageCell: BaseCell {
     
+    override var isHighlighted: Bool {
+        didSet {
+            backgroundColor = isHighlighted ? UIColor(red: 0, green: 134/255, blue: 249/255, alpha: 1) : UIColor.white
+            nameLabel.textColor = isHighlighted ? UIColor.white : UIColor.black
+            timeLabel.textColor = isHighlighted ? UIColor.white : UIColor.black
+            messageLabel.textColor = isHighlighted ? UIColor.white : UIColor.black
+        }
+    }
+    
     var message: Message? {
         didSet {
             nameLabel.text = message?.friend?.name
@@ -73,6 +82,15 @@ class MessageCell: BaseCell {
             if let date = message?.date {
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "h:mm a"
+                
+                let elapsedTimeInSeconds = NSDate().timeIntervalSince(date as Date)
+                let daysInSeconds: TimeInterval = 60 * 60 * 24
+                
+                if elapsedTimeInSeconds > daysInSeconds * 7 {
+                    dateFormatter.dateFormat = "MM/dd/yy"
+                } else if elapsedTimeInSeconds > daysInSeconds {
+                    dateFormatter.dateFormat = "EEE"
+                }
                 
                 timeLabel.text = dateFormatter.string(from: date as Date)
             }
