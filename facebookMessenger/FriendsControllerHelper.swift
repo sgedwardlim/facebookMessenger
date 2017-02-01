@@ -49,34 +49,34 @@ extension FriendsController {
             mark.name = "Mark Zuckerberg"
             mark.profileImageName = "zuckprofile"
             
-            createMessage(withText: "Hello, my name is mark, nice to meet you. I am the founder of facebook and I have made the forbes list at a very young age. ", friend: mark, minutesAgo: 3, context: context)
-            createMessage(withText: "Whatzzup!! Are you interested in buying our very new Facebook phone!?! We are certian you will be please with the product! Please check it out!!", friend: mark, minutesAgo: 2, context: context)
-            createMessage(withText: "That sounds wonderful mark, I'll be sure to check it out!", friend: mark, minutesAgo: 2, context: context, isSender: true)
-            createMessage(withText: "Great! I'll hold you to it!", friend: mark, minutesAgo: 2, context: context)
-            createMessage(withText: "Hey have you checked out this awesome messenger app that I'm working on?", friend: mark, minutesAgo: 2, context: context, isSender: true)
-            createMessage(withText: "Heyyyy that looks awfully familiar.. Hmmm...", friend: mark, minutesAgo: 2, context: context)
+            FriendsController.createMessage(withText: "Hello, my name is mark, nice to meet you. I am the founder of facebook and I have made the forbes list at a very young age. ", friend: mark, minutesAgo: 3, context: context)
+            FriendsController.createMessage(withText: "Whatzzup!! Are you interested in buying our very new Facebook phone!?! We are certian you will be please with the product! Please check it out!!", friend: mark, minutesAgo: 2, context: context)
+            FriendsController.createMessage(withText: "That sounds wonderful mark, I'll be sure to check it out!", friend: mark, minutesAgo: 2, context: context, isSender: true)
+            FriendsController.createMessage(withText: "Great! I'll hold you to it!", friend: mark, minutesAgo: 2, context: context)
+            FriendsController.createMessage(withText: "Hey have you checked out this awesome messenger app that I'm working on?", friend: mark, minutesAgo: 2, context: context, isSender: true)
+            FriendsController.createMessage(withText: "Heyyyy that looks awfully familiar.. Hmmm...", friend: mark, minutesAgo: 2, context: context)
             
             let steve = Friend(context: context)
             
             steve.name = "Steve Jobs"
             steve.profileImageName = "steveprofile"
             
-            createMessage(withText: "Good Morning...", friend: steve, minutesAgo: 3, context: context)
-            createMessage(withText: "Hello how are you doing!", friend: steve, minutesAgo: 2, context: context)
+            FriendsController.createMessage(withText: "Good Morning...", friend: steve, minutesAgo: 3, context: context)
+            FriendsController.createMessage(withText: "Hello how are you doing!", friend: steve, minutesAgo: 2, context: context)
             
             let ghandi = Friend(context: context)
             
             ghandi.name = "Mahatma Gandhi"
             ghandi.profileImageName = "gandhiprofile"
             
-            createMessage(withText: "My name is ghandi and I am pleased to meet you!", friend: ghandi, minutesAgo: 60 * 24, context: context)
+            FriendsController.createMessage(withText: "My name is ghandi and I am pleased to meet you!", friend: ghandi, minutesAgo: 60 * 24, context: context)
             
             let donald = Friend(context: context)
             
             donald.name = "Donald Trump"
             donald.profileImageName = "donaldprofile"
             
-            createMessage(withText: "No goddamit You're Fired!", friend: donald, minutesAgo: 60 * 24 * 8, context: context)
+            FriendsController.createMessage(withText: "No goddamit You're Fired!", friend: donald, minutesAgo: 60 * 24 * 8, context: context)
             
             delegate?.saveContext()
         }
@@ -84,14 +84,13 @@ extension FriendsController {
         loadData()
     }
     
-    private func createMessage(withText text: String, friend: Friend, minutesAgo: Double, context: NSManagedObjectContext, isSender: Bool = false) {
+    static func createMessage(withText text: String, friend: Friend, minutesAgo: Double, context: NSManagedObjectContext, isSender: Bool = false) {
         
         let message  = Message(context: context)
         message.friend = friend
         message.text = text
         message.date = NSDate().addingTimeInterval(-minutesAgo * 60)
         message.isSender = isSender
-        
     }
     
     func loadData() {

@@ -27,6 +27,10 @@ class FriendsController: UICollectionViewController, UICollectionViewDelegateFlo
         setupData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        tabBarController?.tabBar.isHidden = false
+    }
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if let count = messages?.count {
             return count
