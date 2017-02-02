@@ -43,19 +43,7 @@ extension FriendsController {
         let delegate = UIApplication.shared.delegate as? AppDelegate
         
         if let context = delegate?.persistentContainer.viewContext {
-            
-            let mark = Friend(context: context)
-            
-            mark.name = "Mark Zuckerberg"
-            mark.profileImageName = "zuckprofile"
-            
-            FriendsController.createMessage(withText: "Hello, my name is mark, nice to meet you. I am the founder of facebook and I have made the forbes list at a very young age. ", friend: mark, minutesAgo: 3, context: context)
-            FriendsController.createMessage(withText: "Whatzzup!! Are you interested in buying our very new Facebook phone!?! We are certian you will be please with the product! Please check it out!!", friend: mark, minutesAgo: 2, context: context)
-            FriendsController.createMessage(withText: "That sounds wonderful mark, I'll be sure to check it out!", friend: mark, minutesAgo: 2, context: context, isSender: true)
-            FriendsController.createMessage(withText: "Great! I'll hold you to it!", friend: mark, minutesAgo: 2, context: context)
-            FriendsController.createMessage(withText: "Hey have you checked out this awesome messenger app that I'm working on?", friend: mark, minutesAgo: 2, context: context, isSender: true)
-            FriendsController.createMessage(withText: "Heyyyy that looks awfully familiar.. Hmmm...", friend: mark, minutesAgo: 2, context: context)
-            
+                        
             let steve = Friend(context: context)
             
             steve.name = "Steve Jobs"
@@ -80,8 +68,6 @@ extension FriendsController {
             
             delegate?.saveContext()
         }
-        
-        loadData()
     }
     
     static func createMessage(withText text: String, friend: Friend, minutesAgo: Double, context: NSManagedObjectContext, isSender: Bool = false) {
@@ -91,36 +77,8 @@ extension FriendsController {
         message.text = text
         message.date = NSDate().addingTimeInterval(-minutesAgo * 60)
         message.isSender = isSender
-    }
-    
-    func loadData() {
-        let delegate = UIApplication.shared.delegate as? AppDelegate
         
-        if let context = delegate?.persistentContainer.viewContext {
-            
-            if let friends = fetchFriends() {
-                
-                messages = [Message]()
-                for friend in friends {
-                    
-                    let fetchRequest: NSFetchRequest<Message> = Message.fetchRequest()
-                    fetchRequest.sortDescriptors = [NSSortDescriptor(key: "date", ascending: false)]
-                    fetchRequest.predicate = NSPredicate(format: "friend.name = %@", friend.name!)
-                    fetchRequest.fetchLimit = 1
-                    
-                    do {
-                        let fetchedMessage = try context.fetch(fetchRequest)
-                        messages?.append(contentsOf: fetchedMessage)
-                    } catch let err {
-                        print(err)
-                    }
-                }
-                
-                messages = messages?.sorted(by: {
-                    $0.date!.compare($1.date! as Date) == .orderedDescending
-                })
-            }
-        }
+        friend.lastMessage = message
     }
     
     private func fetchFriends() -> [Friend]? {

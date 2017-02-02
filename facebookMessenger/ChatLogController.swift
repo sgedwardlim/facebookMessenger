@@ -97,7 +97,6 @@ class ChatLogController: UICollectionViewController, UICollectionViewDelegateFlo
         
         do {
             try fetchedResultsController.performFetch()
-            print(fetchedResultsController.sections?[0].numberOfObjects)
         } catch let err {
             print(err)
         }
