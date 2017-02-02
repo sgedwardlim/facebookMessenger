@@ -124,8 +124,8 @@ class ChatLogController: UICollectionViewController, UICollectionViewDelegateFlo
     func simulate() {
         let delegate = UIApplication.shared.delegate as? AppDelegate
         if let context = delegate?.persistentContainer.viewContext {
-            FriendsController.createMessage(withText: "This is the first simulated message", friend: friend!, minutesAgo: 1, context: context)
-            FriendsController.createMessage(withText: "Another Message that was recieved awhile ago", friend: friend!, minutesAgo: 1, context: context)
+            FriendsController.createMessage(withText: "This is the first simulated message", friend: friend!, minutesAgo: 0, context: context)
+            FriendsController.createMessage(withText: "Another Message that was recieved awhile ago", friend: friend!, minutesAgo: 0, context: context)
             
             delegate?.saveContext()
         }
